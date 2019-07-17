@@ -5,6 +5,19 @@ var newMap
 var markers = []
 
 /**
+ *  Register Service Worker!
+ */
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('/sw.js')
+	.then(function() {
+		console.log('Registration worked!');
+	})
+	.catch(function() {
+		console.log('Registration failed!');
+	});
+}
+
+/**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {

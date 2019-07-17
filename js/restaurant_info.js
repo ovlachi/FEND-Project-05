@@ -85,12 +85,17 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
+  address.setAttribute('tabindex', '0');
+  address.setAttribute('aria-label', `${restaurant.address}`);
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.setAttribute('tabindex', '0');
+  image.alt = `${restaurant.name} Restaurant`;
 
   const cuisine = document.getElementById('restaurant-cuisine');
+  cuisine.setAttribute('tabindex', '0');
   cuisine.innerHTML = restaurant.cuisine_type;
 
   // fill operating hours
@@ -106,6 +111,8 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
  */
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
+  hours.setAttribute('tabindex', '0');
+
   for (let key in operatingHours) {
     const row = document.createElement('tr');
 
@@ -129,6 +136,8 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
+  title.setAttribute('tabindex', '0');
+  title.setAttribute('aria-label', 'Reviews');
 
   if (!reviews) {
     const noReviews = document.createElement('p');
