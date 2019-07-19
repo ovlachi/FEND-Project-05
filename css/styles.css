@@ -30,7 +30,15 @@ a img{
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0 0 20px;
+  margin: 0 0 20px 20px;
+}
+
+h2 {
+  margin: 10px 0 20px 20px;
+}
+
+h3 {
+  font-size: 2em;
 }
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
